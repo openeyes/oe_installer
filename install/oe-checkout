@@ -1,9 +1,5 @@
 #!/bin/bash
 
-source /etc/openeyes/modules.conf
-dir=$PWD
-
-
 # Process commandline parameters
 gitroot="openeyes"
 defaultbranch=master
@@ -22,6 +18,10 @@ usessh=0
 sshuserstring="git"
 fixparams=""
 showhelp=0
+installpath="openeyes"
+confpath=""
+custompath=0
+customconfpath=0
 
 if [ -z "$1" ]; then showhelp=1; fi
 
@@ -60,11 +60,23 @@ case $i in
 	;;
     --help) showhelp=1
     ;;
+	--path) custompath=1; fixparams="$fixparams $i"
+    ;;
+    --conf-path) customconfpath=1; fixparams="$fixparams $i"
+    ;;
 	*)  if [ ! -z "$i" ]; then
 			if [ "$customgitroot" = "1" ]; then
 				gitroot=$i;
 				customgitroot=0
 				## Set root path to repo
+			elif [ $custompath = 1 ]; then
+                installpath=$i
+                custompath=0
+				fixparams="$fixparams $i"
+            elif [ $customconfpath = 1 ]; then
+                confpath=$i
+                customconfpath=0
+				fixparams="$fixparams $i"
 			elif [ "$branch" == "master" ]; then
 				branch=$i
 			else echo "Unknown command line: $i"
@@ -113,6 +125,15 @@ echo ""
 echo "Checking out $branch..."
 echo ""
 
+
+# If custom path has been set, but no custom configpath/dbmane then assume config path and db name will be same as custom install path name
+if [ -z $confpath ]; then
+    confpath=$installpath
+fi
+
+source /etc/$confpath/modules.conf
+dir=$PWD
+
 # Create correct user string to pass to github
 if [ ! -z $username ]; then
     if [ ! -z $pass ]; then
@@ -143,8 +164,8 @@ if [ ! "$force" = "1" ]; then
 	  modulelist=""
 
 	  # ensure modules directory exists - prevents code being checked out to wrong place
-	  mkdir -p /var/www/openeyes/protected/modules
-	  cd /var/www/openeyes/protected/modules
+	  mkdir -p /var/www/$installpath/protected/modules
+	  cd /var/www/$installpath/protected/modules
 	  for module in ${modules[@]}; do
 		if [ ! -d "$module" ]; then
 			if [ ! "$module" = "openeyes" ]; then printf "\e[31mModule $module not found\e[0m\n"; fi
@@ -165,8 +186,8 @@ if [ ! "$force" = "1" ]; then
 	  done
 
 	  # ensure modules directory exists - prevents code being checked out to wrong place
-	  mkdir -p /var/www/openeyes/protected/javamodules
-	  cd  /var/www/openeyes/protected/javamodules/
+	  mkdir -p /var/www/$installpath/protected/javamodules
+	  cd  /var/www/$installpath/protected/javamodules/
 	  for module in ${javamodules[@]}; do
 		if [ ! -d "$module" ]; then
 			printf "\e[31mModule $module not found\e[0m\n"
@@ -203,8 +224,8 @@ if [ $killmodules = 1 ]; then
 fi
 
 # Check out or clone the code modules
-mkdir -p /var/www/
-cd /var/www
+mkdir -p /var/www/$installpath
+cd /var/www/$installpath
 
 for module in ${modules[@]}; do
 
@@ -212,17 +233,17 @@ for module in ${modules[@]}; do
 
   # Move from openeyes repo to modules - NOTE THAT openeyes must be the first module in the modules list, otherwise things go very wrong!
   if [ ! "$module" = "openeyes" ]; then
-      mkdir -p /var/www/openeyes/protected/modules
-      cd /var/www/openeyes/protected/modules
+      mkdir -p /var/www/$installpath/protected/modules/$module
+      cd /var/www/$installpath/protected/modules/$module
   fi
 
   # Determine if module already exists. If not, clone it
-  if [ ! -d "$module" ] && [ ! "$module" = "openeyes" ]; then
+  if [ ! "$(ls -A)" ] && [ ! "$module" = "openeyes" ]; then
       clone=1
-  elif [ "$module" = "openeyes" ] && [ ! -d "/var/www/openeyes/.git" ]; then
+  elif [ "$module" = "openeyes" ] && [ ! -d "/var/www/$installpath/.git" ]; then
       clone=1
       # If we're dealing with the openeyes parent repo, then clone to the www root
-      #cloneto="/var/www/openeyes"
+      #cloneto="/var/www/$installpath"
   fi
 
   if [ $clone = 1 ]; then
@@ -230,13 +251,13 @@ for module in ${modules[@]}; do
 	printf "\e[32m$module: Doesn't currently exist - cloning from : ${basestring}/${module}.git \e[0m"
 
 	# checkout branch. If branch doesn't exist then get master instead
-	if ! git clone -b $branch ${basestring}/${module}.git ; then
+	if ! git clone -b $branch ${basestring}/${module}.git .; then
 		echo "falling back to $defaultbranch branch for $module..."
-		if ! git clone -b $defaultbranch ${basestring}/${module}.git ; then
+		if ! git clone -b $defaultbranch ${basestring}/${module}.git .; then
 			# If we cannot find default branch at specifeid remote, fall back to OE git hub
 			if [ "$gitroot != "openeyes ]; then
 				echo "could not find $defaultbranch at $gitroot remote. Falling back to openeyes official repo"
-				git clone -b $defaultbranch ${basestring/$gitroot/openeyes}/${module}.git
+				git clone -b $defaultbranch ${basestring/$gitroot/openeyes}/${module}.git .
 			fi
 		fi
 	fi
@@ -248,10 +269,10 @@ for module in ${modules[@]}; do
     # Determine if module is part of core or a sub-repo - don't process modules that are part of core
     if [ ! "$module" = "openeyes" ]; then
         # If we're not processing the parent openeyes repo, then traverse into the module's subdir
-        cd $module
+        #cd $module
         if [ ! -d ".git" ]; then processgit=0; fi
     else
-        cd /var/www/openeyes
+        cd /var/www/$installpath
     fi
 
     if [ $processgit = 1 ]; then
@@ -267,8 +288,8 @@ for module in ${modules[@]}; do
 done
 
 # Check out the Java modules
-mkdir -p /var/www/openeyes/protected/javamodules
-cd /var/www/openeyes/protected/javamodules
+mkdir -p /var/www/$installpath/protected/javamodules
+cd /var/www/$installpath/protected/javamodules
 for module in ${javamodules[@]}; do
   if [ ! -d "$module" ]; then
     printf "\e[32m$module: Doesn't currently exist - cloning: \e[0m"
@@ -301,7 +322,7 @@ cd "$dir"
 
 # Show summary of checkout
 if [ ! "$nosummary" = "1" ]; then
-	oe-which
+	oe-which $fixparams
 	printf "\e[42m\e[97m  CHECKOUT COMPLETE  \e[0m \n"
 fi
 

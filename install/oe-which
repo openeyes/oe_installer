@@ -1,5 +1,62 @@
 #!/bin/bash
 
+## Process command parameters
+quiet=0
+showhelp=0
+installpath="openeyes"
+confpath=""
+custompath=0
+customconfpath=0
+fixparams=""
+
+for i in "$@"
+do
+case $i in
+	--quiet|-q) quiet=1
+	;;
+    --help) showhelp=1
+    ;;
+	--path) custompath=1
+	;;
+	--conf-path) customconfpath=1
+    ;;
+	*)  if [ ! -z "$i" ]; then
+			if [ $custompath = 1 ]; then
+                installpath=$i
+                custompath=0
+            elif [ $customconfpath = 1 ]; then
+                confpath=$i
+                customconfpath=0
+			else echo "Unknown command line: $i"
+				## Set branch name
+			fi
+		fi
+    ;;
+esac
+done
+
+# Show help text
+if [ $showhelp = 1 ]; then
+    echo ""
+    echo "DESCRIPTION:"
+    echo "Display which branch is in use for each module"
+    echo ""
+    echo "usage: $0 [--help] [--quiet | -q]"
+    echo ""
+    echo "COMMAND OPTIONS:"
+	echo ""
+	echo "  --help         : Show this help"
+    echo "  --quiet | -q   : Do not show console output"
+	echo ""
+    exit 1
+fi
+
+# If custom path has been set, but no custom configpath/dbmane then assume config path and db name will be same as custom install path name
+if [ -z $confpath ]; then
+    confpath=$installpath
+fi
+
+
 function gitbranch {
   branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
   if [ !$? = 0 ]; then
@@ -11,23 +68,23 @@ function gitbranch {
   fi
 }
 
-source /etc/openeyes/modules.conf
+source /etc/$confpath/modules.conf
 
 dir=$PWD
 
 #Check openeyes core
-cd /var/www/openeyes
+cd /var/www/$installpath
 b="$(gitbranch)"
 printf "\e[32m%-20s\e[39m-- openeyes\n" $b
 
 # Check PHP modules
-cd /var/www/openeyes/protected/modules
+cd /var/www/$installpath/protected/modules
 for module in ${modules[@]}; do
-	if [ ! -d "$module" ]; then 
+	if [ ! -d "$module" ]; then
 		if [ ! "$module" = "openeyes" ]; then printf "\e[31mModule $module not found\e[0m\n"; fi
 	else
 		cd $module
-	
+
 		# Check if this is a git repo
 		if [ -d ".git" ]; then
 		  b="$(gitbranch)"
@@ -38,7 +95,7 @@ for module in ${modules[@]}; do
 done
 
 echo Java modules:
-cd  /var/www/openeyes/protected/javamodules/
+cd  /var/www/$installpath/protected/javamodules/
 for module in ${javamodules[@]}; do
   if [ ! -d "$module" ]; then
     printf "\e[31mModule $module not found\e[0m\n"
@@ -52,4 +109,3 @@ done
 
 printf "Done\n\n"
 cd "$dir"
-

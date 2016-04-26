@@ -1,24 +1,82 @@
 #!/bin/bash
 
+## Process command parameters
+quiet=0
+showhelp=0
+installpath="openeyes"
+confpath=""
+custompath=0
+customconfpath=0
+fixparams=""
+
+for i in "$@"
+do
+case $i in
+	--quiet|-q) quiet=1
+	;;
+    --help) showhelp=1
+    ;;
+	--path) custompath=1; fixparams="$fixparams $i"
+	;;
+	--conf-path) customconfpath=1; fixparams="$fixparams $i"
+    ;;
+	*)  if [ ! -z "$i" ]; then
+			if [ $custompath = 1 ]; then
+                installpath=$i
+                custompath=0
+                fixparams="$fixparams $i"
+            elif [ $customconfpath = 1 ]; then
+                confpath=$i
+                customconfpath=0
+                fixparams="$fixparams $i"
+			else echo "Unknown command line: $i"
+				## Set branch name
+			fi
+		fi
+    ;;
+esac
+done
+
+# Show help text
+if [ $showhelp = 1 ]; then
+    echo ""
+    echo "DESCRIPTION:"
+    echo "Update openeyes to latest code"
+    echo ""
+    echo "usage: $0 [--help] [--quiet | -q]"
+    echo ""
+    echo "COMMAND OPTIONS:"
+	echo ""
+	echo "  --help         : Show this help"
+    echo "  --quiet | -q   : Do not show console output"
+	echo ""
+    exit 1
+fi
+
+# If custom path has been set, but no custom configpath/dbmane then assume config path and db name will be same as custom install path name
+if [ -z $confpath ]; then
+    confpath=$installpath
+fi
+
 git config core.fileMode false 2>/dev/null
 
-source /etc/openeyes/modules.conf
+source /etc/$confpath/modules.conf
 dir=$PWD
 
 #  If -f was not specified on the command line, then check each module
 #  to see if any changes are unstaged.
 
 # Check root
-cd /var/www/openeyes
+cd /var/www/$installpath
 printf "\e[32mopeneyes: \e[0m"
 if [ "$1" = "-f" ]; then git reset --hard; fi
 # use -ff to kill all modules and reload
-if [ "$1" = "-ff" ]; then rm -rf /var/www/openeyes/protected/modules; git reset --hard; fi
+if [ "$1" = "-ff" ]; then rm -rf /var/www/$installpath/protected/modules; git reset --hard; fi
 git pull
 
 # Check out the PHP modules
 
-cd /var/www/openeyes/protected/modules
+cd /var/www/$installpath/protected/modules
 for module in ${modules[@]}; do
   if [ ! -d "$module" ]; then
 		if [ ! "$module" = "openeyes" ]; then printf "\e[31mModule $module not found\e[0m\n"; fi
@@ -35,7 +93,7 @@ done
 
 # Check out the Java modules
 
-cd /var/www/openeyes/protected/javamodules
+cd /var/www/$installpath/protected/javamodules
 for module in ${javamodules[@]}; do
   if [ ! -d "$module" ]; then
     printf "\e[31mModule $module not found\e[0m\n"
@@ -48,10 +106,10 @@ done
 
 
 # Now reset/relink various config files etc
-oe-fix
+oe-fix $fixparams
 
 
 cd "$dir"
 printf "\e[42m\e[97m  UPDATE COMPLETE  \e[0m \n"
-oe-which
+oe-which $fixparams
 echo ""

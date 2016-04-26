@@ -9,6 +9,12 @@ clearcahes=1
 buildassests=1
 migrate=1
 showhelp=0
+installpath="openeyes"
+confpath=""
+custompath=0
+customconfpath=0
+migrateparams=""
+
 for i in "$@"
 do
 case $i in
@@ -24,7 +30,23 @@ case $i in
 	;;
     --help) showhelp=1
     ;;
-	*)  echo "Unknown command line: $i"
+	--path) custompath=1; migrateparams="$migrateparams $i"
+    ;;
+    --conf-path) customconfpath=1; migrateparams="$migrateparams $i"
+    ;;
+	*)  if [ ! -z "$i" ]; then
+			if [ $custompath = 1 ]; then
+                installpath=$i
+                custompath=0
+				migrateparams="$migrateparams $i"
+            elif [ $customconfpath = 1 ]; then
+                confpath=$i
+                customconfpath=0
+				migrateparams="$migrateparams $i"
+			else echo "Unknown command line: $i"
+				## Set branch name
+			fi
+		fi
     ;;
 esac
 done
@@ -49,9 +71,14 @@ if [ $showhelp = 1 ]; then
     exit 1
 fi
 
-source /etc/openeyes/env.conf
+# If custom path has been set, but no custom configpath/dbmane then assume config path and db name will be same as custom install path name
+if [ -z $confpath ]; then
+    confpath=$installpath
+fi
 
-cd /var/www/openeyes
+source /etc/$confpath/env.conf
+
+cd /var/www/$installpath
 if [ -f ".htaccess.sample" ]; then
 echo Renaming .htaccess file
 mv .htaccess.sample .htaccess
@@ -65,37 +92,37 @@ if [ ! "$env" = "VAGRANT" ]; then chown -R www-data:www-data index.php; fi
 fi
 
 if [ ! -d "protected/config/local" ]; then
-	echo "WARNING: this code branch uses db settings from common.php, not /etc/openeyes"
+	echo "WARNING: this code branch uses db settings from common.php, not /etc/$confpath"
 	mv protected/config/local.sample protected/config/local
 	mv protected/config/local/common.sample.php protected/config/local/common.php
 	if [ ! "$envtype" = "VAGRANT" ]; then chown -R www-data:www-data protected/config/local; fi
 	chmod -R 775 protected/config/local
 	# When using old oe versions, overwirte password in commpon.php to use new default usermname/password
-	sed -i "s/'username' => 'root',/'username' => 'openeyes',/" /var/www/openeyes/protected/config/local/common.php
-	sed -i "s/'password' => '',/'password' => 'openeyes',/" /var/www/openeyes/protected/config/local/common.php
+	sed -i "s/'username' => 'root',/'username' => 'openeyes',/" /var/www/$installpath/protected/config/local/common.php
+	sed -i "s/'password' => '',/'password' => 'openeyes',/" /var/www/$installpath/protected/config/local/common.php
 fi;
 
 # Make sure yii framework found/linked
-rm "/var/www/openeyes/vendor/yiisoft/yii" 2>/dev/null || :
-mkdir -p /var/www/openeyes/vendor/yiisoft
-if [ ! "$envtype" = "VAGRANT" ]; then chown -R www-data:www-data /var/www/openeyes/vendor; fi
+rm "/var/www/$installpath/vendor/yiisoft/yii" 2>/dev/null || :
+mkdir -p /var/www/$installpath/vendor/yiisoft
+if [ ! "$envtype" = "VAGRANT" ]; then chown -R www-data:www-data /var/www/$installpath/vendor; fi
 
 if [ -d "/usr/lib/openeyes/yii" ]; then
 	# v1.12+
 	echo "Linking Yii framework to /usr/lib/openeyes/yii"
-	ln -s /usr/lib/openeyes/yii /var/www/openeyes/vendor/yiisoft/yii
+	ln -s /usr/lib/openeyes/yii /var/www/$installpath/vendor/yiisoft/yii
 else
 	#fix for pre v1.12
-	echo "Linking Yii framework to /var/www/openeyes/protected/yii"
-	ln -s /var/www/openeyes/protected/yii /var/www/openeyes/vendor/yiisoft/yii
+	echo "Linking Yii framework to /var/www/$installpath/protected/yii"
+	ln -s /var/www/$installpath/protected/yii /var/www/$installpath/vendor/yiisoft/yii
 fi
 
 
 # Make sure vendor directory found/linked
-if [ ! -d "/var/www/openeyes/protected/vendors" ]; then
+if [ ! -d "/var/www/$installpath/protected/vendors" ]; then
 	echo Linking vendor framework
-	ln -s /usr/lib/openeyes/vendors /var/www/openeyes/protected/vendors
-	chown -R www-data:www-data /var/www/openeyes/protected/vendors 2>/dev/null || :
+	ln -s /usr/lib/openeyes/vendors /var/www/$installpath/protected/vendors
+	chown -R www-data:www-data /var/www/$installpath/protected/vendors 2>/dev/null || :
 	if [ ! $? = 0 ]; then echo "unable to link vendors - this is expected for versions prior to v1.12"; fi
 fi
 
@@ -109,7 +136,7 @@ if ps ax | grep -v grep | grep run-dicom-service.sh > /dev/null
 		service dicom-file-watcher stop
 fi
 
-cd /var/www/openeyes/protected/javamodules/IOLMasterImport
+cd /var/www/$installpath/protected/javamodules/IOLMasterImport
 rm -rf dist/lib 2>/dev/null || :
 mkdir -p dist
 ln -s ../lib ./dist/lib
@@ -135,7 +162,7 @@ fi
 if [ "$migrate" = "1" ]; then
     echo ""
     echo "Migrating database..."
-	oe-migrate --quiet
+	oe-migrate --quiet $migrateparams
     echo ""
 else
 	echo "
@@ -146,8 +173,8 @@ fi
 # Clear caches
 if [ $clearcahes = 1 ]; then
 	echo "Clearing caches..."
-	rm -rf /var/www/openeyes/protected/runtime/cache/* 2>/dev/null || :
-	rm -rf /var/www/openeyes/assets/* 2>/dev/null || :
+	rm -rf /var/www/$installpath/protected/runtime/cache/* 2>/dev/null || :
+	rm -rf /var/www/$installpath/assets/* 2>/dev/null || :
 	echo ""
 fi
 

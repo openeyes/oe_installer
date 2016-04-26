@@ -29,10 +29,6 @@ fi
 # copy our commands to /usr/bin
 cp -f /vagrant/install/oe-* /usr/bin
 
-# copy our new configs to /etc/openeyes (don't overwrite existing config)
-mkdir -p /etc/openeyes
-cp -n /vagrant/install/etc/openeyes/* /etc/openeyes/
-cp -n /vagrant/install/bashrc /etc/bash.bashrc
 
 # set command options
 # Chose branch / tag to clone (default is master)
@@ -52,6 +48,12 @@ usessh=0
 sshuserstring="git"
 showhelp=0
 checkoutparams=""
+installpath="openeyes"
+confpath=""
+dbname=""
+custompath=0
+customconfpath=0
+fixparams=""
 
 # Process command line inputs
 for i in "$@"
@@ -80,14 +82,29 @@ case $i in
 	;;
     --help) showhelp=1
     ;;
+    --path) custompath=1; checkoutparams="$checkoutparams $i"; fixparams="$fixparams $i"
+    ;;
+    --conf-path) customconfpath=1; checkoutparams="$checkoutparams $i"; fixparams="$fixparams $i"
+    ;;
 	*)  if [ ! -z "$i" ]; then
 			if [ "$customgitroot" = "1" ]; then
 				gitroot=$i
 				customgitroot=0
                 $checkoutparams="$checkoutparams -r $i"
 				## Set root path to repo
-			else
-				if [ "$branch" == "master" ]; then branch=$i; else echo "Unknown command line: $i"; fi
+            elif [ $custompath = 1 ]; then
+                installpath=$i
+                custompath=0
+                checkoutparams="$checkoutparams $i"
+                fixparams="$fixparams $i"
+            elif [ $customconfpath = 1 ]; then
+                confpath=$i
+                customconfpath=0
+                checkoutparams="$checkoutparams $i"
+                fixparams="$fixparams $i"
+			elif [ "$branch" == "master" ]; then
+                branch=$i
+            else echo "Unknown command line: $i"
 				## Set branch name
 			fi
 		fi
@@ -125,10 +142,24 @@ if [ $showhelp = 1 ]; then
     exit 1
 fi
 
+# If custom path has been set, but no custom configpath/dbmane then assume config path and db name will be same as custom install path name
+if [ -z $confpath ]; then
+    confpath=$installpath
+fi
+
+if [ -z $dbname ]; then
+    dbname=$installpath
+fi
+
+# copy our new configs to /etc/$confpath (don't overwrite existing config)
+mkdir -p /etc/$confpath
+cp -n /vagrant/install/etc/openeyes/* /etc/$confpath/
+cp -n /vagrant/install/bashrc /etc/bash.bashrc
 
 echo "
 
 Installing openeyes $branch from https://gitgub.com/$gitroot
+To /var/www/$installpath
 
 "
 
@@ -142,11 +173,11 @@ Downloading OpenEyes code base...
 
 cd /var/www
 
-# If openeyes dir exists, prompt user to delete it
-if [ -d "openeyes" ]; then
+# If $installpath dir exists, prompt user to delete it
+if [ -d "$installpath" ]; then
 	if [ ! "$force" = "1" ]; then
 		echo "
-CAUTION: openeyes folder already exists.
+CAUTION: $installpath folder already exists.
 This installer will delete it. Any uncommitted changes will be lost!
 If you're upgrading this is necessary.
 Do you wish to continue?
@@ -164,31 +195,31 @@ Do you wish to continue?
         # If cleanconfig (-ff) has been given on the command line, then completely
         # wipe the existing oe config before continuing. USE WITH EXTREME CAUTION
 		if [ "$cleanconfig" = "1" ]; then
-			echo "cleaning old config from /etc/openeyes"
-			rm -rf /etc/openeyes
-			mkdir /etc/openeyes
-			cp -f /vagrant/install/etc/openeyes/* /etc/openeyes/
+			echo "cleaning old config from /etc/$confpath"
+			rm -rf /etc/$confpath
+			mkdir /etc/$confpath
+			cp -f /vagrant/install/etc/openeyes/* /etc/$confpath/
 			cp -f /vagrant/install/bashrc /etc/bash.bashrc
 		fi
         # END of cleanconfig
 
-		if [ -d "openeyes/protected/config" ]; then
-			echo "backing up previous configuration to /etc/openeyes/backup"
-			mkdir -p /etc/openeyes/backup/config
-			cp -f -r openeyes/protected/config/* /etc/openeyes/backup/config/
+		if [ -d "$installpath/protected/config" ]; then
+			echo "backing up previous configuration to /etc/$confpath/backup"
+			mkdir -p /etc/$confpath/backup/config
+			cp -f -r $installpath/protected/config/* /etc/$confpath/backup/config/
 		fi
 
-		echo "Removing existing openeyes folder"
-		rm -rf openeyes
+		echo "Removing existing $installpath folder"
+		rm -rf $installpath
 	fi
 
 fi
 
 echo calling oe-checkout with $checkoutparams
-oe-checkout $branch -f --no-migrate --no-summary --no-fix $checkoutparams
+oe-checkout $branch -f --no-summary --no-fix $checkoutparams
 
 
-cd /var/www/openeyes/protected
+cd /var/www/$installpath/protected
 echo "uzipping yii. Please wait..."
 if unzip -oq yii.zip ; then echo "."; fi
 if unzip -oq vendors.zip ; then echo "."; fi
@@ -205,22 +236,18 @@ if [ ! -d "yii" ]; then echo "."; if unzip -oq yii.zip ; then echo "."; fi; fi
 if [ ! -d "vendors" ]; then echo "."; if unzip -oq vendors.zip ; then echo "."; fi; fi
 
 
-
-
-mkdir -p /var/www/openeyes/cache
-mkdir -p /var/www/openeyes/assets
-mkdir -p /var/www/openeyes/protected/cache
-mkdir -p /var/www/openeyes/protected/runtime
-chmod 777 /var/www/openeyes/cache
-chmod 777 /var/www/openeyes/assets
-chmod 777 /var/www/openeyes/protected/cache
-chmod 777 /var/www/openeyes/protected/runtime
+mkdir -p /var/www/$installpath/cache
+mkdir -p /var/www/$installpath/assets
+mkdir -p /var/www/$installpath/protected/cache
+mkdir -p /var/www/$installpath/protected/runtime
+chmod 777 /var/www/$installpath/cache
+chmod 777 /var/www/$installpath/assets
+chmod 777 /var/www/$installpath/protected/cache
+chmod 777 /var/www/$installpath/protected/runtime
 if [ ! `grep -c '^vagrant:' /etc/passwd` = '1' ]; then
 	chown -R www-data:www-data /var/www/*
 fi
 
-# call oe-fix
-oe-fix
 
 if [ ! "$live" = "1" ]; then
     echo ""
@@ -228,9 +255,9 @@ if [ ! "$live" = "1" ]; then
 	cd $installdir
 
 	echo "
-	drop database if exists openeyes;
-	create database openeyes;
-	grant all privileges on openeyes.* to 'openeyes'@'%' identified by 'openeyes';
+	drop database if exists $dbname;
+	create database $dbname;
+	grant all privileges on $dbname.* to '$dbname'@'%' identified by '$dbname';
 	flush privileges;
 	" > /tmp/openeyes-mysql-create.sql
 
@@ -259,7 +286,7 @@ if [ ! "$live" = "1" ]; then
 
 
 	echo Downloading database
-	cd /var/www/openeyes/protected/modules
+	cd /var/www/$installpath/protected/modules
 	if ! git clone -b $branch ${basestring}/Sample.git sample ; then
 		echo "$branch doesn't exist for sample database. Falling back to $defaultbranch branch for openeyes..."
         if ! git clone -b $defaultbranch ${basestring}/sample.git sample ; then
@@ -272,25 +299,32 @@ if [ ! "$live" = "1" ]; then
 	fi
 
 	cd sample/sql
-	mysql -uroot "-ppassword" -D openeyes < openeyes_sample_data.sql
+	mysql -uroot "-ppassword" -D $dbname < openeyes_sample_data.sql
 
 	# # Set banner to show branch name
 	echo "
-	use openeyes;
-	UPDATE openeyes.setting_installation s SET s.value='New openeyes installation - $branch' WHERE s.key='watermark';
+	use $dbname;
+	UPDATE $dbname.setting_installation s SET s.value='New openeyes installation - $branch' WHERE s.key='watermark';
 	" > /tmp/openeyes-mysql-setbanner.sql
 
 	mysql -u root "-ppassword" < /tmp/openeyes-mysql-setbanner.sql
 	rm /tmp/openeyes-mysql-setbanner.sql
 
+    sed -i "s/'dbname' => 'openeyes',/'dbname' => '$dbname',/" /var/www/$installpath/protected/config/local/common.php
+    sed -i "s,parse_ini_file('/etc/openeyes/db.conf',parse_ini_file('/etc/$confpath/db.conf'," /var/www/$installpath/protected/config/local/common.php
+    sed -i "s/dbname=openeyes/dbname=$dbname/" /etc/$confpath/db.conf
+    '/etc/openeyes/db.conf'
+
 fi
 
+# call oe-fix
+oe-fix $fixparams
 
-echo Performing database migrations
-
-cd /var/www/openeyes/protected
-./yiic migrate --interactive=0
-./yiic migratemodules --interactive=0
+# echo Performing database migrations
+#
+# cd /var/www/$installpath/protected
+# ./yiic migrate --interactive=0
+# ./yiic migratemodules --interactive=0
 
 
 if [ ! "$live" = "1" ]; then
@@ -299,8 +333,8 @@ if [ ! "$live" = "1" ]; then
 	echo "
 	<VirtualHost *:80>
 	ServerName hostname
-	DocumentRoot /var/www/openeyes
-	<Directory /var/www/openeyes>
+	DocumentRoot /var/www/$installpath
+	<Directory /var/www/$installpath>
 		Options FollowSymLinks
 		AllowOverride All
 		Order allow,deny
@@ -318,11 +352,11 @@ fi
 
 # The default environment type is assumed to be DEV/AWS.
 # If we are on a vagrant box, set it to DEV/VAGRANT
-# For live systems, /etc/openeyes/env.conf will have to be edited manually
+# For live systems, /etc/$confpath/env.conf will have to be edited manually
 
 if [ `grep -c '^vagrant:' /etc/passwd` = '1' ]; then
   hostname OpenEyesVM
-  sed -i "s/envtype=AWS/envtype=VAGRANT/" /etc/openeyes/env.conf
+  sed -i "s/envtype=AWS/envtype=VAGRANT/" /etc/$confpath/env.conf
   cp -f /vagrant/install/bashrc /home/vagrant/.bashrc
 fi
 
@@ -331,7 +365,7 @@ echo "# env can be one of DEV or LIVE
 # envtype can be one of LIVE, AWS or VAGRANT
 env=LIVE
 envtype=LIVE
-" >/etc/openeyes/env.conf
+" >/etc/$confpath/env.conf
 fi
 
 
@@ -348,7 +382,7 @@ chown iolmaster:www-data /home/iolmaster/*
 chmod 775 /home/iolmaster/*
 
 echo ""
-oe-which
+oe-which $fixparams
 
 echo --------------------------------------------------
 echo OPENEYES SOFTWARE INSTALLED
