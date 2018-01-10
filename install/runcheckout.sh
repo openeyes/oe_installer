@@ -198,10 +198,6 @@ fi
 git config --global core.fileMode false 2>/dev/null
 git config core.fileMode false 2>/dev/null
 
-#ensure modules directory exists
-mkdir -p /var/www/openeyes/protected/modules
-# ensure javamodules directory exists
-sudo mkdir -p /var/www/openeyes/protected/javamodules
 
 cd /var/www/openeyes/protected/modules 2>/dev/null
 
@@ -313,7 +309,7 @@ if [ ! "$force" = "1" ]; then
 	#fi
 else
 	# delete dependencies during force (they will get re-added by oe-fix)
-	sudo rm -rf /var/www/openeyes/node_modules
+	sudo rm -rf /var/www/openeyes/node_modules 2>/dev/null
 fi
 
 if [ $killconfigbackup = 1 ]; then
@@ -350,16 +346,14 @@ for module in ${modules[@]}; do
 
   # Move from openeyes repo to modules - NOTE THAT openeyes must be the first module in the modules list, otherwise things go very wrong!
   if [ ! "$module" = "openeyes" ]; then
+	  #ensure modules directory exists
+	  mkdir -p /var/www/openeyes/protected/modules
       cd /var/www/openeyes/protected/modules
-  else
-	  cd /var/www
   fi
 
   # Determine if module already exists. If not, clone it
   if [ ! -d "$module" ]; then
       clone=1
-  elif [ "$module" = "openeyes" ] && [ ! -d "/var/www/openeyes/.git" ]; then
-  	clone=1
   fi
 
   if [ $clone = 1 ]; then
@@ -415,7 +409,7 @@ for module in ${modules[@]}; do
 done
 
 # Check out the Java modules
-sudo mkdir -p /var/www/openeyes/protected/javamodules
+mkdir -p /var/www/openeyes/protected/javamodules
 cd /var/www/openeyes/protected/javamodules
 for module in ${javamodules[@]}; do
   if [ ! -d "$module" ]; then
