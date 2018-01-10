@@ -358,6 +358,8 @@ for module in ${modules[@]}; do
   # Determine if module already exists. If not, clone it
   if [ ! -d "$module" ]; then
       clone=1
+  elif [[ "$module" = "openeyes" ] && [ ! -d "/var/www/openeyes/.git" ]]; then
+  	clone=1
   fi
 
   if [ $clone = 1 ]; then
@@ -391,7 +393,7 @@ for module in ${modules[@]}; do
     else
         cd /var/www/openeyes
     fi
-	
+
 	if [ ! -d ".git" ]; then processgit=0; fi
 
     if [ $processgit = 1 ]; then
