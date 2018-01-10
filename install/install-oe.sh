@@ -233,12 +233,13 @@ if [ $force = 1 ]; then
 
 fi
 
-sudo mkdir -p openeyes
+# sudo mkdir -p openeyes
+cd /var/www
 
 # Fix permissions
 echo "Setting file permissions..."
 sudo gpasswd -a "$USER" www-data
-sudo chown -R "$USER":www-data openeyes
+sudo chown -R "$USER":www-data .
 
 sudo chmod -R 774 openeyes
 sudo chmod -R g+s openeyes
