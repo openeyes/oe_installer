@@ -352,7 +352,7 @@ if [ ! "$live" = "1" ]; then
 	LogLevel warn
 	CustomLog /var/log/apache2/access.log combined
 	</VirtualHost>
-	" > /etc/apache2/sites-available/000-default.conf
+	" | sudo tee /etc/apache2/sites-available/000-default.conf >/dev/null
 
 	sudo service apache2 restart
 fi
