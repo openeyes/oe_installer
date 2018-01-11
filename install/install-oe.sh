@@ -241,8 +241,8 @@ echo "Setting file permissions..."
 sudo gpasswd -a "$USER" www-data
 sudo chown -R "$USER":www-data .
 
-sudo chmod -R 774
-sudo chmod -R g+s
+sudo chmod -R 774 .
+sudo chmod -R g+s .
 
 # if this isn't a live install, then add the sample DB
 if [ ! $live = 1 ]; then checkoutparams="$checkoutparams --sample"; echo "Sample database wil be installed."; fi
