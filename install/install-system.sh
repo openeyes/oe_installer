@@ -98,8 +98,8 @@ sudo -E add-apt-repository ppa:openjdk-r/ppa -y
 echo Performing package updates
 # ffmpeg 3 isn't supported on xenial or older, so a third party ppa is required
   if [[ `lsb_release -rs` == "16.04" ]] || [[ `lsb_release -rs` == "14.04" ]]; then
-      sudo add-apt-repository ppa:mc3man/gstffmpeg-keep -y
-      sudo add-apt-repository ppa:jonathonf/ffmpeg-3 -y
+      sudo -E add-apt-repository ppa:mc3man/gstffmpeg-keep -y
+      sudo -E add-apt-repository ppa:jonathonf/ffmpeg-3 -y
   fi
 sudo apt update -y
 sudo apt upgrade -y
