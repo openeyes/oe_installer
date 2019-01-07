@@ -35,9 +35,8 @@ The default development setup uses a Mac OSX (preferred) or Windows host, and ru
 * Installs and configures a basic server for you
 * Creates shared folders so code edited on the host is available directly on the virtual machine
 * Maps the install directory on the host to /vagrant on the VM.
-* [VirtualBox] creates a host entry named openeyes.vm. So the website will be available at http://openeyes.vm and MySQL at openeyes.vm:3306
-  * Note that the site will also NATted to http://localhost:8888 as an alternative, and localhost:3333 for MySQL
-* [Hyper-V] creates a host entry named openeyes.mshome.net. So the website is avialable at http://openeyes.mshome.net and MySQL is available at openeyes.mshome.net:3306
+* Creates a host entry named openeyes.vm. So the website will be available at http://openeyes.vm and MySQL at openeyes.vm:3306
+  * [Virtualbox] Note that the site will _also_ be NATted to http://localhost:8888 as an alternative, and localhost:3333 for MySQL
 
 
 ### Installing development environment on Mac OS X 10.6 or later hosts
@@ -53,7 +52,7 @@ The default development setup uses a Mac OSX (preferred) or Windows host, and ru
 
 1. Install Vagrant, VirtualBox and Git, following default install instructions from the above links.
 2. From a terminal window, change to your home directory. Run: `cd ~`
-3. Clone OpenEyes/oe_installer to a directory of your choice. Run: `git clone git@github.com:openeyes/oe_installer.git` 
+3. Clone OpenEyes/oe_installer to a directory of your choice. Run: `git clone git@github.com:openeyes/oe_installer.git`
     3.1 (note, you will need an SSH key configured first - see [Setup SSH Key](#setup-ssh-key). Alternativey you can use `git clone https://github.com/openeyes/oe_installer` and then switch to SSH later on
 4. Create the virtual server from your project directory. Run: `cd ~/oe_installer && vagrant up`
 5. It will take 5 - 10 minutes for the install to complete (depending on the speed of your internet connection)
@@ -79,7 +78,7 @@ The default development setup uses a Mac OSX (preferred) or Windows host, and ru
 2. From an ADMINISTRATIVE command prompt window, change to your root directory.
     Run: `cd c:\`
 3. Clone OpenEyes/oe_installer.
-    Run: `git clone git@github.com:openeyes/oe_installer.git` 
+    Run: `git clone git@github.com:openeyes/oe_installer.git`
     3.1 (note, you will need an SSH key configured first - see [Setup SSH Key](#setup-ssh-key). Alternativey you can use `git clone https://github.com/openeyes/oe_installer` and then switch to SSH later on
 4. Change to the newly created oe_installer directory.
     Run: `cd oe_installer`

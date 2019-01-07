@@ -3,7 +3,7 @@
 
 Vagrant.require_version ">= 2.0"
 
-PLUGINS = %w(vagrant-hostsupdater vagrant-vbguest vagrant-faster vagrant-auto_network)
+PLUGINS = %w(vagrant-hostmanager vagrant-vbguest vagrant-faster vagrant-auto_network)
 
 PLUGINS.reject! { |plugin| Vagrant.has_plugin? plugin }
 
@@ -219,6 +219,12 @@ Vagrant.configure(2) do |config|
 # Copy in ssh keys, then provision
   config.vm.provision "shell", inline: $script, keep_color: true
 
-  config.hostsupdater.remove_on_suspend = true
+#  config.hostsupdater.remove_on_suspend = true
+
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.include_offline = true
 
 end
