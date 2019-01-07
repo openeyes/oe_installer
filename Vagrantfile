@@ -3,10 +3,11 @@
 
 Vagrant.require_version ">= 2.0"
 
-PLUGINS = %w(vagrant-hostmanager vagrant-vbguest vagrant-faster vagrant-auto_network)
+PLUGINS = %w(vagrant-hostmanager vagrant-vbguest vagrant-faster vagrant-auto_network) # These will be installed if not installed
+REMOVE_PLUGINS =%w(vagrant-hostsupdater vagrant-winnfsd) # These will be removed if installed
 
 PLUGINS.reject! { |plugin| Vagrant.has_plugin? plugin }
-
+REMOVE_PLUGINS.reject! { |plugin| !Vagrant.has_plugin? plugin }
 
 
 module OS
@@ -36,6 +37,20 @@ unless PLUGINS.empty?
 	    break;
 	  end
       system("vagrant plugin install #{plugin}")
+      puts
+    end
+#  end
+
+   puts "Please run again"
+   exit 1
+end
+
+unless REMOVE_PLUGINS.empty?
+  print "The following plugins will be uninstalled: #{REMOVE_PLUGINS.join ", "} "
+#  unless ['no', 'n'].include? $stdin.gets.strip.downcase
+    REMOVE_PLUGINS.each do |plugin|
+	  # Exclude windows only plugins from unix hosts
+      system("vagrant plugin uninstall #{plugin}")
       puts
     end
 #  end
@@ -164,7 +179,6 @@ Vagrant.configure(2) do |config|
 		override.vm.synced_folder "~/.ssh", "/home/vagrant/.host-ssh" , owner: "vagrant",	group: "vagrant", mount_options: ["fmode=600"]
 		override.vm.synced_folder "./dicom", "/home/iolmaster/incoming", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
 		override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
-		# config.vm.synced_folder "./www", "/var/www", create: true, type: 'nfs'
     end
 
   end
@@ -218,8 +232,6 @@ Vagrant.configure(2) do |config|
 
 # Copy in ssh keys, then provision
   config.vm.provision "shell", inline: $script, keep_color: true
-
-#  config.hostsupdater.remove_on_suspend = true
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
