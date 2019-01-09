@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version ">= 2.0"
+Vagrant.require_version ">= 2.2.2"
 
 PLUGINS = %w(vagrant-hostmanager vagrant-vbguest vagrant-faster vagrant-auto_network) # These will be installed if not installed
 REMOVE_PLUGINS =%w(vagrant-hostsupdater vagrant-winnfsd) # These will be removed if installed
@@ -108,7 +108,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.hostname = "openeyes.vm"
 
-
   config.vm.network :forwarded_port, host: 8888, guest: 80
   config.vm.network :forwarded_port, host: 3333, guest: 3306
 
@@ -160,7 +159,7 @@ Vagrant.configure(2) do |config|
 
     AutoNetwork.default_pool = "172.16.0.0/24"
     override.vm.network "private_network", :auto_network => true
-	
+
 
 	## set time zone to host
     require 'time'
@@ -208,27 +207,29 @@ Vagrant.configure(2) do |config|
       time_synchronization: true,
       vss: true
     }
-	
+
     h.enable_virtualization_extensions="true"
     h.auto_start_action = "Nothing"
     h.auto_stop_action = "ShutDown"
 
-    override.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0775,file_mode=0774"], disabled: true
-    override.vm.synced_folder "~/.ssh", "/home/vagrant/.host-ssh" , owner: "vagrant",	group: "vagrant", mount_options: ["file_mode=0600"]
-    override.vm.synced_folder "./dicom", "/home/iolmaster/incoming", create: true, owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0666,file_mode=0777"]
-    override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0774,file_mode=0774,mfsymlinks"]
+    override.vm.synced_folder ".", "/vagrant", owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0775,file_mode=0774,vers=3.0"], disabled: true
+    override.vm.synced_folder "~/.ssh", "/home/vagrant/.host-ssh" , owner: "vagrant",	group: "vagrant", mount_options: ["file_mode=0600,vers=3.0"]
+    override.vm.synced_folder "./dicom", "/home/iolmaster/incoming", create: true, owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0666,file_mode=0777,vers=3.0"]
+    override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0774,file_mode=0774,mfsymlinks,vers=3.0"]
 
     override.vm.network "private_network", type: "dhcp"
-	
+
+    # fixes some DNS issues and makes things faster
+    #   - Vagrant overwrites resolv.conf with an internal DNS proxy on each up. which fails to resolve some names!
+    override.vm.provision "dns", type: "shell", :inline => "sudo apt install resolvconf && echo -e 'nameserver 1.1.1.1\nnameserver 8.8.8.8' | sudo tee -a /etc/resolvconf/resolv.conf.d/tail && sudo resolvconf -u", keep_color: true
+
   end
 
 
 
 # Copy in ssh keys, then provision
+## Question: Should SSH keys also be copied on every up?
   config.vm.provision "shell", inline: $script, keep_color: true
-  # fixes some DNS issues and makes things faster
-  config.vm.provision :shell, :inline => "echo -e 'nameserver 1.1.1.1\nnameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf", run: "always"
-
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
