@@ -160,6 +160,7 @@ Vagrant.configure(2) do |config|
 
     AutoNetwork.default_pool = "172.16.0.0/24"
     override.vm.network "private_network", :auto_network => true
+	
 
 	## set time zone to host
     require 'time'
@@ -194,15 +195,6 @@ Vagrant.configure(2) do |config|
   # Hyper-V
   config.vm.provider "hyperv" do |h, override|
 
-    # manual ip
-    # override.vm.provision "shell",
-    # run: "always",
-    # inline: "sudo ifconfig eth0 172.16.0.2 netmask 255.255.255.0 up"
-
-    # override.vm.provision "shell",
-    #  run: "always",
-    #  inline: "sudo route add default gw 172.16.0.1"
-
     h.vmname = "OpenEyes"
     # h.cpus = 2
     h.memory = 768
@@ -216,6 +208,7 @@ Vagrant.configure(2) do |config|
       time_synchronization: true,
       vss: true
     }
+	
     h.enable_virtualization_extensions="true"
     h.auto_start_action = "Nothing"
     h.auto_stop_action = "ShutDown"
@@ -226,12 +219,16 @@ Vagrant.configure(2) do |config|
     override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["noperm,dir_mode=0774,file_mode=0774,mfsymlinks"]
 
     override.vm.network "private_network", type: "dhcp"
+	
   end
 
 
 
 # Copy in ssh keys, then provision
   config.vm.provision "shell", inline: $script, keep_color: true
+  # fixes some DNS issues and makes things faster
+  config.vm.provision :shell, :inline => "echo -e 'nameserver 1.1.1.1\nnameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf", run: "always"
+
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
