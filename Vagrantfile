@@ -64,12 +64,12 @@ cd /vagrant/install
 
 installparams="-f -d --accept"
 installparams_old="$installparams"
-# NOTE: Expects key to be called id_rsa or id_github. If using a custom name ssh file, also provide .ssh/config with "IdentityFile ~/.ssh/<cusom shh name>"
+# NOTE: Expects key to be called id_rsa or id_github. If using a custom name ssh file, also provide .ssh/config with "IdentityFile ~/.ssh/<custom shh name>"
 if [ -d "/home/vagrant/.host-ssh" ] && [ "$(ls -A /home/vagrant/.host-ssh/id*)" ]; then
 	echo "Adding SSH keys..."
     installparams_old="$installparams -ssh"
     if [ ! -f "/home/vagrant/.ssh/config" ]; then
-        sudo -H -u vagrant bash -c 'echo -e "IdentityFile ~/.host-ssh/id_github\nIdentityFile ~/.host-ssh/id_rsa\nIdentityFile ~/.ssh/id_github\nIdentityFile ~/.ssh/id_rsa" > /home/vagrant/.ssh/config'
+        sudo -H -u vagrant bash -c 'echo -e "IdentityFile ~/.host-ssh/id_github\nIdentityFile ~/.host-ssh/id_rsa\nIdentityFile ~/.ssh/id_github\nIdentityFile ~/.ssh/id_rsa" >> /home/vagrant/.ssh/config'
     fi
 	# chmod 600 /home/vagrant/.ssh/id*
 	sudo -H -u vagrant bash -c '$(ssh-agent)  2>/dev/null'
@@ -147,15 +147,15 @@ Vagrant.configure(2) do |config|
   # VirtualBox
   config.vm.provider "virtualbox" do |v, override|
     v.gui = true
-	v.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000 ]
+    v.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 10000 ]
     v.customize ["modifyvm", :id, "--vram", "56"]
     v.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
-	v.customize ["modifyvm", :id, "--nicspeed1", "1000000"]
-	v.customize ["modifyvm", :id, "--nicspeed2", "1000000"]
+    v.customize ["modifyvm", :id, "--nicspeed1", "1000000"]
+    v.customize ["modifyvm", :id, "--nicspeed2", "1000000"]
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant-root", "1"]
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/var/www/", "1"]
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant/", "1"]
-	v.default_nic_type = "virtio"
+    v.default_nic_type = "virtio"
 
     AutoNetwork.default_pool = "172.16.0.0/24"
     override.vm.network "private_network", :auto_network => true
@@ -166,19 +166,19 @@ Vagrant.configure(2) do |config|
     offset = ((Time.zone_offset(Time.now.zone) / 60) / 60)
     timezone_suffix = offset >= 0 ? "-#{offset.to_s}" : "+#{offset.to_s}"
     timezone = 'Etc/GMT' + timezone_suffix
-    v.vm.provision :shell, :inline => "sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/" + timezone + " /etc/localtime", run: "always"
+    override.vm.provision :shell, :inline => "sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/" + timezone + " /etc/localtime", run: "always"
 
-  # Setup synced folders - MacOS uses nfs and shares www to host. Windows uses VirtualBox default and www foler lives internally (use add-samba-share.sh to share www folder to Windows host)
-	if OS.unix?
-		override.vm.synced_folder ".", "/vagrant", type: 'nfs'
-		override.vm.synced_folder "./www/", "/var/www/", id: "vagrant-root", create: true, type: 'nfs'
+    # Setup synced folders - MacOS uses nfs and shares www to host. Windows uses VirtualBox default and www foler lives internally (use add-samba-share.sh to share www folder to Windows host)
+  	if OS.unix?
+  		override.vm.synced_folder ".", "/vagrant", type: 'nfs'
+  		override.vm.synced_folder "./www/", "/var/www/", id: "vagrant-root", create: true, type: 'nfs'
 
-	elsif OS.windows?
-        override.vm.synced_folder ".", "/vagrant"
-		# Mount ssh certs from host
-		override.vm.synced_folder "~/.ssh", "/home/vagrant/.host-ssh" , owner: "vagrant",	group: "vagrant", mount_options: ["fmode=600"]
-		override.vm.synced_folder "./dicom", "/home/iolmaster/incoming", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
-		override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
+  	elsif OS.windows?
+      override.vm.synced_folder ".", "/vagrant"
+      # Mount ssh certs from host
+      override.vm.synced_folder "~/.ssh", "/home/vagrant/.host-ssh" , owner: "vagrant",	group: "vagrant", mount_options: ["fmode=600"]
+      override.vm.synced_folder "./dicom", "/home/iolmaster/incoming", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
+      override.vm.synced_folder "./www", "/var/www", create: true, owner: "vagrant", group: "www-data", mount_options: ["fmode=777"]
     end
 
   end
