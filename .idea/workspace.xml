@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de556e26-ebef-4049-b65d-ea5cb87c3062" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1123351959">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="8" />
+          <entry key="log" value="11" />
+          <entry key="php" value="159" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="8" />
+          <entry key="Log" value="11" />
+          <entry key="PHP" value="159" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="15" />
+          <entry key="js" value="13" />
+          <entry key="php" value="2163" />
+          <entry key="txt" value="652" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="13" />
+          <entry key="PHP" value="2163" />
+          <entry key="PLAIN_TEXT" value="667" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="17" />
+          <entry key="git.branch.checkout.remote" value="1" />
+          <entry key="git.branch.checkout.revision" value="1" />
+          <entry key="git.branch.create.new" value="5" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/protected/controllers/BaseEventTypeController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="1218" column="6" lean-forward="true" selection-start-line="1218" selection-start-column="6" selection-end-line="1218" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/HistoryRisks.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisks_event_edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+              <folding>
+                <element signature="e#6#1000#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/db/CDbMigration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3111">
+              <caret line="190" column="20" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/web/helpers/CHtml.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13481">
+              <caret line="800" column="46" selection-start-line="800" selection-start-column="46" selection-end-line="800" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/base/CModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2618">
+              <caret line="161" column="137" selection-start-line="161" selection-start-column="137" selection-end-line="161" selection-end-column="137" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/openeyes/protected/runtime/application.log">
+          <provider selected="true" editor-type-id="LogFileEditorProvider">
+            <state relative-caret-position="136">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="50" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>confirm</find>
+      <find>OEModule_OphCiExamination_models_HistoryRisks_entry_table cols-full</find>
+      <find>$element</find>
+      <find>entries</find>
+      <find>$values</find>
+      <find>HistoryRisksEntry_event_edit</find>
+      <find>et_ophciexamination_history_risks</find>
+      <find>4</find>
+      <find>validate(</find>
+      <find>actionupdate</find>
+      <find>++2++</find>
+      <find>++3++</find>
+      <find>validate</find>
+      <find>add-history-risk-popup</find>
+      <find>OEModule_OphCiExamination_models_HistoryRisks_no_risks_date</find>
+      <find>OEModule_OphCiExamination_models_HistoryRisks_no_risks</find>
+      <find>isRisksChecked</find>
+      <find>visibilit</find>
+      <find>visibility</find>
+      <find>hide</find>
+      <find>hidden</find>
+      <find>updateNoRisksState</find>
+      <find>$noRisksWrapper</find>
+      <find>riskNotCheckedValue</find>
+      <find>read</find>
+      <find>patient has no known risks</find>
+      <find>attachment_data</find>
+      <find>adderdialog</find>
+      <find>group_title</find>
+      <find>update</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>2019</replace>
+      <replace>Attachment</replace>
+      <replace>OEModule\OphCiExamination\models\Attachment</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\views\default</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\models</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\widgets</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\views</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\views\admin</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected</dir>
+      <dir>C:\WWW\oe_installer_5\www\openeyes\protected\migrations</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/www/openeyes" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/www/openeyes" value="feature/OE-8178" />
+      </map>
+    </option>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/www/openeyes" source="develop" />
+                <branch-info repo="$PROJECT_DIR$/www/openeyes" source="dicom/api" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/OphCiExamination_ElementSet.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/controllers/DefaultController.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/models/EventType.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/view_Element_OphCiExamination_Attachment.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_Attachment.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/Allergies.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/Attachment_event_edit.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/AttachmentElementWidget_event_edit.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/models/BaseEventTypeElement.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/behaviors/PatientLevelElementBehaviour.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/AttachmentElementWidget.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/Attachment.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/Attachment.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/migrations/m190114_135739_create_attachment_element.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/Attachment_event_view.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/migrations/m140917_112906_event_type_permissions.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/migrations/m190123_104141_add_rbac_operation_suffix_to_event_type_version.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/controllers/AdminController.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/config/core/admin.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/migrations/m190122_102950_add_show_attachments_column_to_event_type_table.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/views/admin/attachments/index.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryMedicationsEntry_prescription_event_edit.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_GlaucomaRisk.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_Risks.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_HistoryRisk.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisksEntry_event_edit.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/HistoryRisks.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/HistoryRisks.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/controllers/BaseEventTypeController.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/base/CModel.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/web/helpers/CHtml.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/js/HistoryRisks.js" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisks_event_edit.php" />
+        <option value="$PROJECT_DIR$/www/openeyes/protected/migrations/m190129_095640_rename_macula_parent_to_retina.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/www/openeyes/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/www/openeyes/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/chai/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/dialog-polyfill/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/eventemitter2/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/flot/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/jquery-ui/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/jt.timepicker/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/material-design-lite/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/mustache/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/rrule/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/components/sinonjs-built/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/assets/newblue/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/gii/EventTypeModule/templates/default/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/Genetics/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiDidNotAttend/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCiPhasing/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCoCorrespondence/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCoCvi/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCoDocument/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCoMessaging/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphCoTherapyapplication/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphDrPrescription/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInBiometry/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInDnaextraction/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInDnasample/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInGeneticresults/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInLabResults/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphInVisualfields/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphTrConsent/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphTrIntravitrealinjection/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphTrLaser/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphTrOperationbooking/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/OphTrOperationnote/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/PatientTicketing/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/assets/components/blanket/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/assets/components/chai/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/assets/components/eventemitter2/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/assets/components/jquery/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/assets/components/mustache/package.json" />
+      <path value="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="408" />
+    <option name="y" value="41" />
+    <option name="width" value="1919" />
+    <option name="height" value="1327" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="oe_installer_5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oe_installer_5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oe_installer_5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oe_installer_5" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oe_installer_5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oe_installer_5" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="openeyes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="oe_installer_5" type="b2602c69:ProjectViewProjectNode" />
+              <item name="oe_installer_5" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="openeyes" type="462c0819:PsiDirectoryNode" />
+              <item name="protected" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="attachmentdata&#9;null&#9;null&#10;attachment_data&#9;null&#9;null&#10;hasRiskStatus&#9;null&#9;null&#10;OEModule_OphCiExamination_models_HistoryRisks&#9;null&#9;null&#10;HistoryRisksEntry_event_edit&#9;FILE&#9;file://C:/WWW/oe_installer_5/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisksEntry_event_edit.php&#10;medications&#9;null&#9;null&#10;medicat&#9;null&#9;null&#10;/admin/institutions/edit&#9;FILE&#9;file://C:/WWW/oe_installer_5/www/openeyes/protected/views/admin/institutions/edit.php&#10;models/BaseEventTypeElement.php&#9;FILE&#9;file://C:/WWW/oe_installer_5/www/openeyes/protected/models/BaseEventTypeElement.php&#10;form_Element_OphCiExamination_Attachment&#9;FILE&#9;file://C:/WWW/oe_installer_5/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_Attachment.php&#10;OphCiExamination_ElementSet&#9;null&#9;null&#10;version&#9;ACTION&#9;ActivateVersionControlToolWindow&#10;renderelement&#9;null&#9;null&#10;EventType.php&#9;FILE&#9;file://C:/WWW/oe_installer_5/www/openeyes/protected/models/EventType.php" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="C:/personal/MyVet" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\WWW\oe_installer_5\www\openeyes\protected\views\admin\attachments" />
+      <recent name="C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\widgets\views" />
+      <recent name="C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\widgets" />
+      <recent name="C:\WWW\oe_installer_5\www\openeyes\protected\modules\OphCiExamination\models" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de556e26-ebef-4049-b65d-ea5cb87c3062" name="Default Changelist" comment="" />
+      <created>1548088317114</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1548088317114</updated>
+      <workItem from="1548088319470" duration="2074000" />
+      <workItem from="1548146684174" duration="20481000" />
+      <workItem from="1548233201492" duration="8412000" />
+      <workItem from="1548336630500" duration="504000" />
+      <workItem from="1548672835138" duration="14900000" />
+      <workItem from="1548690400188" duration="1390000" />
+      <workItem from="1548714868534" duration="4924000" />
+    </task>
+    <task id="LOCAL-00001" summary="dicom/api - change order of conditions in CDbCriteria to respect the operator">
+      <created>1548151539510</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1548151539510</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dicom/api - add column show_attachments in event_type; display attachments only into events with show_attachments set">
+      <created>1548169966946</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548169966946</updated>
+    </task>
+    <task id="LOCAL-00003" summary="dicom/api - move AttachmentElement into a widget; change attachment class in migration">
+      <created>1548175366990</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1548175366990</updated>
+    </task>
+    <task id="LOCAL-00004" summary="dicom/api - move AttachmentElement into a widget; change attachment class in migration">
+      <created>1548175582528</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1548175582528</updated>
+    </task>
+    <task id="LOCAL-00005" summary="dicom/api - create admin screen for viewing attachments in events">
+      <created>1548242272059</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1548242272059</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feature/OE-8214 - replace start icon with correct stop icon in Medications">
+      <created>1548675852732</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1548675852732</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feature/OE-8219 - show checkbox ConfirmNoRisks: show table to show checkbox, hide rows not available">
+      <created>1548682729189</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1548682729189</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feature/OE-8219 - do not untick checkbox on load: js bug">
+      <created>1548684546708</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548684546708</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feature/OE-8219 - do not untick checkbox on load: js bug, fix 2">
+      <created>1548685736032</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548685736032</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feature/OE-8178 - change group title of macula to retina">
+      <created>1548756326662</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1548756326662</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="52685000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+      <is-preview-enabled value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988662" visible="true" weight="0.13434023" />
+      <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.087890625" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="0" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.1599064" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.18506752" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3299293" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dicom/api - change order of conditions in CDbCriteria to respect the operator" />
+    <MESSAGE value="dicom/api - add column show_attachments in event_type; display attachments only into events with show_attachments set" />
+    <MESSAGE value="dicom/api - move AttachmentElement into a widget; change attachment class in migration" />
+    <MESSAGE value="dicom/api - create admin screen for viewing attachments in events" />
+    <MESSAGE value="feature/OE-8214 - replace start icon with correct stop icon in Medications" />
+    <MESSAGE value="feature/OE-8219 - show checkbox ConfirmNoRisks: show table to show checkbox, hide rows not available" />
+    <MESSAGE value="feature/OE-8219 - do not untick checkbox on load: js bug" />
+    <MESSAGE value="feature/OE-8219 - do not untick checkbox on load: js bug, fix 2" />
+    <MESSAGE value="feature/OE-8178 - change group title of macula to retina" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature/OE-8178 - change group title of macula to retina" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/views/admin/institutions/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/assets/js/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/Attachment_event_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/Allergies_event_view.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/migrations/m190114_135739_create_attachment_element.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/Attachment_event_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/Event.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="121" column="22" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/views/admin/institutions/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="107" column="4" lean-forward="true" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/EventType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="40" column="56" lean-forward="true" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/config/core/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="48" column="82" lean-forward="true" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/controllers/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="2103" column="20" selection-start-line="2103" selection-start-column="20" selection-end-line="2103" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/components/OEHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/views/admin/attachments/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/migrations/m190122_102950_add_show_attachments_column_to_event_type_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/migrations/m190123_104141_add_rbac_operation_suffix_to_event_type_version.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="37" selection-start-line="11" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/migrations/m140917_112906_event_type_permissions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/Medication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/HistoryMedications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/HistoryMedications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="268" column="5" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryMedicationsEntry_prescription_event_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="48" column="98" selection-start-line="48" selection-start-column="98" selection-end-line="48" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryMedicationsEntry_event_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="113" column="18" selection-start-line="113" selection-start-column="18" selection-end-line="113" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisksEntry_event_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/Element_OphCiExamination_HistoryRisk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="50" column="51" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/assets/js/PCRCalculation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="309" column="12" selection-start-line="309" selection-start-column="12" selection-end-line="309" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/BaseElement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/BaseEventTypeElement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/BaseActiveRecordVersioned.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/db/ar/CActiveRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="804" column="40" selection-start-line="804" selection-start-column="37" selection-end-line="804" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/controllers/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="1100" column="24" selection-start-line="1100" selection-start-column="24" selection-end-line="1100" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_GlaucomaRisk.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_Risks.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/views/default/form_Element_OphCiExamination_HistoryRisk.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/HistoryRisks.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisks_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/js/HistoryRisks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="953">
+          <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/Patient.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="784" column="20" selection-start-line="784" selection-start-column="20" selection-end-line="784" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisks_event_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="28" column="46" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/Api/migrations/m181219_152028_init_api_migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/Api/modules/Request/models/AttachmentData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="44" column="56" lean-forward="true" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/Api/modules/Request/components/BaseRequestHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/models/BaseActiveRecord.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="316" column="58" selection-start-line="316" selection-start-column="58" selection-end-line="316" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphTrOperationbooking/views/default/form_Element_OphTrOperationbooking_Diagnosis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="56" column="31" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/assets/js/OpenEyes.UI.AdderDialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8551">
+          <caret line="503" column="2" selection-start-line="503" selection-start-column="2" selection-end-line="503" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/migrations/m190129_095640_rename_macula_parent_to_retina.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/controllers/BaseEventTypeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="1218" column="6" lean-forward="true" selection-start-line="1218" selection-start-column="6" selection-end-line="1218" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/models/HistoryRisks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/modules/OphCiExamination/widgets/views/HistoryRisks_event_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" column="22" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding>
+            <element signature="e#6#1000#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/db/CDbMigration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3111">
+          <caret line="190" column="20" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/web/helpers/CHtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13481">
+          <caret line="800" column="46" selection-start-line="800" selection-start-column="46" selection-end-line="800" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/vendor/yiisoft/yii/framework/base/CModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="161" column="137" selection-start-line="161" selection-start-column="137" selection-end-line="161" selection-end-column="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/openeyes/protected/runtime/application.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="136">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="50" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

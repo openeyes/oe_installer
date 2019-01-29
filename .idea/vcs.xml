@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/openeyes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/openeyes/protected/assets/newblue" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/openeyes/protected/modules/eyedraw" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/openeyes/protected/modules/sample" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/www/openeyes/vendor/xthiago/pdf-version-converter" vcs="Git" />
+  </component>
+</project>
