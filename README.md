@@ -1,3 +1,8 @@
+# DEPREACATED
+It is recommended to use docker (https://github.com/openeyes/docker) or to use the install-system.sh and install-oe.sh located at https://github.com/openeyes/OpenEyes/tree/master/protected/scripts
+
+This repo is still useful for installing OLD v1 and 2 versions of openeyes
+
 # OpenEyes Installation Guide
 
 This repository should be the only one checked out when building a new OpenEyes machine instance.
